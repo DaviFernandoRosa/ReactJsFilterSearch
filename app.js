@@ -56,8 +56,8 @@ function App() {
 
 
 
-
-            {itens.map(item => {
+            {/*condição itens? nao deixa executar o map cado resultado for undefined*/}                
+            {itens?.map(item => {
                 return <div className="item" key={item.id}>
 
                     <span>NOME: {item.razao}</span>
@@ -67,7 +67,8 @@ function App() {
 
                 </div>
             })}
-
+               {/*condiçao caso pesquisa do cliente n tenha no backend retornar aviso!*/}
+                {itens === undefined ? <p className="condicao">Nenhum resultado encontrado, tente novamente!</p> : ''}
             <Pagination
                 pages={pages}
                 itensPerPage={itensPerPage}
